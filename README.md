@@ -40,7 +40,7 @@ Create a `.env` file in the project root:
 UNBOUND_API_KEY=your_api_key_here
 ```
 
-Get your API key at [getunbound.ai](https://getunbound.ai/).
+Get your API key at [ai.thg.dev](https://ai.thg.dev/applications).
 
 ### 3. Configure Models (Optional)
 
