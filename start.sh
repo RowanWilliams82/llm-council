@@ -2,6 +2,18 @@
 
 # LLM Council - Start script
 
+CERT_DIR="/tmp/llm-council-certs"
+CORP_CERT="$CERT_DIR/thehutgroup.pem"
+COMBINED_CERT="$CERT_DIR/ca-bundle-combined.pem"
+
+mkdir -p "$CERT_DIR"
+curl -sfo "$CORP_CERT" https://thg-certificate.thgaccess.com/thehutgroup.pem
+cat /etc/ssl/certs/ca-certificates.crt "$CORP_CERT" > "$COMBINED_CERT"
+
+export SSL_CERT_FILE="$COMBINED_CERT"
+export NODE_EXTRA_CA_CERTS="$CORP_CERT"
+export UV_NATIVE_TLS=true
+
 echo "Starting LLM Council..."
 echo ""
 
